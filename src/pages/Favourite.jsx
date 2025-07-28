@@ -1,9 +1,8 @@
-
 import ArticleCard from "../components/news/ArticleCard";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export default function Favourite() {
-  const [favourites] = useLocalStorage("favourite-articles", []);
+  const [favourites] = useLocalStorage("inbrief-favorites", []);
 
   return (
     <section className="px-4 py-10 max-w-6xl mx-auto text-gray-800">
@@ -29,7 +28,7 @@ export default function Favourite() {
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {favourites.map((article, index) => (
-            <ArticleCard key={index} article={article} />
+            <ArticleCard key={article.url || index} article={article} />
           ))}
         </div>
       )}

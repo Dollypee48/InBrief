@@ -1,20 +1,30 @@
 export default function About() {
   return (
-    <section className="px-4 py-10 max-w-4xl mx-auto text-gray-800">
-      <h1 className="text-3xl font-bold mb-4">About InBrief</h1>
-      <p className="mb-4 text-lg">
-        <strong>InBrief</strong> is a modern, user-friendly news aggregator built with React. It curates trending and categorized news articles from around the world using a public news API.
-      </p>
-      <p className="mb-4 text-lg">
-        Whether you're interested in politics, technology, sports, or entertainment, InBrief helps you stay updated with just a few clicks.
-        You can search for specific topics, explore articles by category, and bookmark your favorite stories for later reading.
-      </p>
-      <p className="mb-4 text-lg">
-        Built with performance and simplicity in mind, InBrief is ideal for anyone who wants a clean, distraction-free way to stay informed.
-      </p>
-      <p className="text-md text-gray-600">
-        This project is open-source and intended for educational and learning purposes.
-      </p>
+    <section className="relative mt-24 px-6 py-16 max-w-4xl mx-auto bg-white shadow-lg rounded-2xl border border-gray-100 overflow-hidden">
+      
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-rose-400 to-pink-500" />
+
+      <div className="relative z-10">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-6 border-b pb-2 border-gray-200">
+          About <span className="text-pink-600">InBrief</span>
+        </h1>
+
+        <p className="mb-6 text-lg text-gray-700 leading-relaxed">
+          <strong className="text-gray-900">InBrief</strong> is a sleek, intuitive news aggregator app built with React. It delivers trending and categorized headlines from trusted sources around the globe using a powerful news API.
+        </p>
+
+        <p className="mb-6 text-lg text-gray-700 leading-relaxed">
+          Whether you're into politics, tech, business, sports, or entertainment, InBrief keeps you updated with clean, quick access. Effortlessly search topics, browse by category, and save favorites to read later.
+        </p>
+
+        <p className="mb-6 text-lg text-gray-700 leading-relaxed">
+          Designed for speed and focus, InBrief offers a clutter-free reading experience perfect for everyday readers, students, or professionals.
+        </p>
+
+        <p className="text-md text-gray-500 italic">
+          💡 This is an open-source project made for learning and educational exploration.
+        </p>
+      </div>
     </section>
   );
 }

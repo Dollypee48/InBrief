@@ -3,12 +3,14 @@ import { useNews } from "../../context/NewsContext";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
-  const { fetchAndSetNews } = useNews();
+  const { fetchAndSetNews, setQuery: setContextQuery } = useNews();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (!query.trim()) return;
-    fetchAndSetNews(query.trim());
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery) return;
+    setContextQuery(trimmedQuery);  // 🔥 Add this line
+    fetchAndSetNews(trimmedQuery);
   };
 
   return (
