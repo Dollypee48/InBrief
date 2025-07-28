@@ -23,19 +23,19 @@ export const NewsProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [query, setQuery] = useState("general"); // default category
+  const [query, setQuery] = useState("general"); 
 
-  // Sync articles with localStorage
+  
   useEffect(() => {
     localStorage.setItem("inbrief-articles", JSON.stringify(articles));
   }, [articles]);
 
-  // Sync savedArticles with localStorage
+  
   useEffect(() => {
     localStorage.setItem("inbrief-favorites", JSON.stringify(savedArticles));
   }, [savedArticles]);
 
-  // Fetch news when query changes
+ 
   useEffect(() => {
     fetchAndSetNews(query);
   }, [query]);

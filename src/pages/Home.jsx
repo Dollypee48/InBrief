@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useNews } from "../context/NewsContext";
 import ArticleCard from "../components/news/ArticleCard";
 import SearchBar from "../components/news/SearchBar";
-import CategoryFilter from "../components/news/CategoryFilter"; // Import CategoryFilter
+import CategoryFilter from "../components/news/CategoryFilter"; 
 
 export default function Home() {
-  const { articles, fetchAndSetNews, loading, error, query } = useNews(); // include query
+  const { articles, fetchAndSetNews, loading, error, query } = useNews(); 
 
-  // Fetch news when query changes
+  
   useEffect(() => {
     if (query) {
       fetchAndSetNews(query);
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <section className="min-h-screen bg-black text-white px-4 py-10">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+       
         <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-8 rounded-3xl shadow-lg text-rose-500 mb-12 border border-gray-700">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
             InBrief: Curated Headlines, Instantly
@@ -27,15 +27,15 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Search + Category */}
+      
         <div className="bg-gray-900 p-6 rounded-2xl shadow-md border border-gray-700 mb-10">
           <SearchBar />
-          <CategoryFilter /> {/* Include category filter */}
+          <CategoryFilter />
           {loading && <p className="text-indigo-400 mt-4">Loading news...</p>}
           {error && <p className="text-red-400 mt-4">{error}</p>}
         </div>
 
-        {/* Articles */}
+       
         <div>
           <h2 className="text-2xl font-semibold text-white mb-6 border-b border-gray-700 pb-2">
             Latest Articles
