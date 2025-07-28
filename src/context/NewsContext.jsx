@@ -23,25 +23,28 @@ export const NewsProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [query, setQuery] = useState("trending");
+  const [query, setQuery] = useState("general"); // default category
 
- 
+  // Sync articles with localStorage
   useEffect(() => {
     localStorage.setItem("inbrief-articles", JSON.stringify(articles));
   }, [articles]);
 
-  
+  // Sync savedArticles with localStorage
   useEffect(() => {
     localStorage.setItem("inbrief-favorites", JSON.stringify(savedArticles));
   }, [savedArticles]);
 
-  
+  // Fetch news when query changes
+  useEffect(() => {
+    fetchAndSetNews(query);
+  }, [query]);
+
   const updateArticles = (newArticles) => {
     setArticles(newArticles);
     setError(null);
   };
 
-  
   const toggleFavorite = (article) => {
     const exists = savedArticles.some((a) => a.url === article.url);
     if (exists) {
@@ -51,8 +54,7 @@ export const NewsProvider = ({ children }) => {
     }
   };
 
- 
-  const fetchAndSetNews = async (searchQuery = query) => {
+  const fetchAndSetNews = async (searchQuery) => {
     setLoading(true);
     setError(null);
 
@@ -61,7 +63,7 @@ export const NewsProvider = ({ children }) => {
       if (!apiKey) throw new Error("Missing API Key");
 
       const response = await fetch(
-        `https://gnews.io/api/v4/search?q=${encodeURIComponent(searchQuery)}&token=${apiKey}&lang=en&max=20`
+        `https://gnews.io/api/v4/top-headlines?topic=${searchQuery}&lang=en&token=${apiKey}&max=20`
       );
 
       if (!response.ok) throw new Error("Network response failed");
@@ -72,9 +74,10 @@ export const NewsProvider = ({ children }) => {
         setArticles(data.articles);
       } else {
         setArticles([]);
-        setError("No articles found for that topic.");
+        setError("No articles found for this category.");
       }
     } catch (err) {
+      console.error(err);
       setError("Failed to fetch news. Please check your network or API key.");
     } finally {
       setLoading(false);

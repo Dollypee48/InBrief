@@ -5,13 +5,15 @@ export default function Favourite() {
   const [favourites] = useLocalStorage("inbrief-favorites", []);
 
   return (
-    <section className="px-4 py-10 max-w-6xl mx-auto text-gray-800">
-      <h1 className="text-3xl font-bold mb-6">Your Favorite Articles</h1>
+    <section className="px-4 py-12 max-w-6xl mx-auto bg-black min-h-screen">
+      <h1 className="text-4xl font-extrabold text-white mb-8 border-b border-gray-700 pb-2">
+        Your <span className="text-pink-500">Favorite</span> Articles
+      </h1>
 
       {!favourites || favourites.length === 0 ? (
-        <div className="text-center text-gray-500 mt-10">
+        <div className="text-center text-gray-400 mt-20">
           <svg
-            className="w-16 h-16 mx-auto mb-4 text-gray-300"
+            className="w-16 h-16 mx-auto mb-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

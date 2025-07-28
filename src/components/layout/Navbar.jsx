@@ -9,7 +9,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center w-full md:w-auto">
           <Link
             to="/"
-            className="text-2xl font-extrabold text-gray-900 tracking-wide"
+            className="text-2xl font-extrabold text-rose-600 tracking-wide"
           >
             InBrief
           </Link>
@@ -19,19 +19,19 @@ export default function Navbar() {
         <div className="flex gap-6 text-sm justify-center md:justify-end w-full md:w-auto">
           <Link
             to="/"
-            className="text-gray-700 hover:text-blue-600 font-medium"
+            className="text-gray-700 hover:text-rose-600 font-medium"
           >
             Home
           </Link>
           <Link
             to="/favourite"
-            className="text-gray-700 hover:text-blue-600 font-medium"
+            className="text-gray-700 hover:text-rose-600 font-medium"
           >
             Favorites
           </Link>
           <Link
             to="/about"
-            className="text-gray-700 hover:text-blue-600 font-medium"
+            className="text-gray-700 hover:text-rose-600 font-medium"
           >
             About
           </Link>
